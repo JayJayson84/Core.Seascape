@@ -14,4 +14,8 @@
     <ProjectReference Include="..\Core.Seascape.BLL\Core.Seascape.BLL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Shared\EditorTemplates\" />
+  </ItemGroup>
+
 </Project>
