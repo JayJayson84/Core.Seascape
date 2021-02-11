@@ -1,0 +1,30 @@
+{
+  "version": "1.0.0",
+  "name": "core.seascape",
+  "author": "JayJayson",
+  "private": true,
+  "scripts": {
+    "build-bundle": "webpack --config-name bundle"
+  },
+  "devDependencies": {
+    "babel-core": "6.26.3",
+    "babel-loader": "7.1.5",
+    "babel-preset-env": "1.7.0",
+    "@babel/plugin-transform-arrow-functions": "7.12.13",
+    "core-js": "3.8.3",
+    "del": "^6.0.0",
+    "glob": "^7.1.6",
+    "gulp": "4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-dart-sass": "^1.0.2",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-run": "^1.7.1",
+    "gulp-terser": "^2.0.1",
+    "merge-stream": "^2.0.0",
+    "webpack": "^5.17.0",
+    "webpack-cli": "^4.4.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {}
+}
