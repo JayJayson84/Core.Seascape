@@ -36,7 +36,7 @@ namespace Core.Seascape.UI
                 {
                     if (string.IsNullOrWhiteSpace(location)) continue;
 
-                    options.ViewLocationFormats.Add($"{location.Substring(rootPath.Length).Replace(@"\", @"/")}/{{0}}.cshtml");
+                    options.ViewLocationFormats.Add($"{location[rootPath.Length..].Replace(@"\", @"/")}/{{0}}.cshtml");
                 }
             }).AddRazorRuntimeCompilation();
         }
