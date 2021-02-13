@@ -1,3 +1,4 @@
+using Core.Seascape.BLL.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,6 +22,9 @@ namespace Core.Seascape.UI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper(typeof(Startup));
+
+            services.AddScoped<ISeascapeService, SeascapeService>();
+            services.AddScoped<IStyleService, StyleService>();
 
             var rootPath = Configuration.GetValue<string>(WebHostDefaults.ContentRootKey);
             var viewPath = Path.Combine(rootPath, "Views");
