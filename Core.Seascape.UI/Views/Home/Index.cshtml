@@ -1,7 +1,14 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@using Core.Seascape.UI.Models.Layouts
+@using Core.Seascape.UI.Models.Pages
+@using Core.Seascape.UI.Models.Forms.Seascape
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+@model LayoutModel<IndexViewModel>
+
+<div class="row">
+    <div class="col-lg-8 order-lg-last" id="@SeascapeForm.AjaxUpdateTargetId">
+        <partial name="_AnimatedSeascapeImage" for="@Model.PageModel.AnimatedSeascapeImage">
+    </div>
+    <div class="col-lg-4 order-lg-first mh-100">
+        <partial name="_SeascapeForm" for="@Model.SeascapeForm" />
+    </div>
 </div>
