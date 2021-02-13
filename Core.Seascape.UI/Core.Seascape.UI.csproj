@@ -18,8 +18,9 @@
   <ItemGroup>
     <Folder Include="Content\dest\css\" />
     <Folder Include="Content\dest\js\" />
-    <Folder Include="Views\Shared\EditorTemplates\" />
-    <Folder Include="wwwroot\css\" />
+    <Folder Include="Content\src\js\lib\" />
+    <Folder Include="Content\src\scss\lib\" />
+    <Folder Include="wwwroot\css\generated\" />
     <Folder Include="wwwroot\js\" />
   </ItemGroup>
 
