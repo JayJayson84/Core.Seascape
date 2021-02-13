@@ -19,12 +19,12 @@ namespace Core.Seascape.UI.Models.Layouts
             Title = title;
         }
 
-        public string Title { get; set; }
-        public string OpengraphTitle { get; set; }
-        public string OpengraphDescription { get; set; }
-        public string OpengraphImage { get; set; }
-        public string OpengraphUrl { get; set; }
-        public string TwitterCard { get; set; }
+        public string Title { get; set; } = "Seascape Randomiser";
+        public string OpengraphTitle { get; set; } = "Seascape Randomiser";
+        public string OpengraphDescription { get; set; } = "Create random animated seascapes with a range of eye-catching foreground silhouettes.";
+        public string OpengraphImage { get; set; } = "/images/seascape-randomiser.png";
+        public string OpengraphUrl { get; set; } = "https://www.jayjayson.com/";
+        public string TwitterCard { get; set; } = "summary_large_image";
         public IEnumerable<string> StylesheetPaths { get; set; }
         public SeascapeForm SeascapeForm { get; set; }
     }
