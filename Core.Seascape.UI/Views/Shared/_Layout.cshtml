@@ -1,26 +1,50 @@
-﻿<!DOCTYPE html>
+﻿@using Core.Seascape.UI.Extensions
+@using Core.Seascape.UI.Models.Layouts
+
+@model LayoutModel
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Core.Seascape.UI</title>
+    <meta http-equiv="content-language" content="en" />
+    <title>@Model.Title</title>
+    @Html.MetaName("description", Model.OpengraphDescription)
+    @Html.MetaProperty("og:title", Model.OpengraphTitle)
+    @Html.MetaProperty("og:description", Model.OpengraphDescription)
+    @Html.MetaProperty("og:image", Model.OpengraphImage)
+    @Html.MetaProperty("og:url", Model.OpengraphUrl)
+    @Html.MetaName("twitter:card", Model.TwitterCard)
     <link rel="icon" type="image/x-icon" href="~/favicon.ico">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.min.css" />
+    @foreach (var stylesheet in Model.StylesheetPaths)
+    {
+        <link rel="stylesheet" href="@stylesheet" />
+    }
+    @RenderSection("HeaderScripts", required: false)
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M04195EWHF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-M04195EWHF');
+    </script>
 </head>
-<body>
+<body class="d-flex flex-column vh-100">
     <partial name="_Header" />
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    <main role="main" class="container-fluid flex-fill">
+        @RenderBody()
+    </main>
     <partial name="_Footer" />
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/bundle.min.js" asp-append-version="true"></script>
     <script src="https://kit.fontawesome.com/54ea7dd153.js" crossorigin="anonymous"></script>
-    @RenderSection("Scripts", required: false)
+    @RenderSection("FooterScripts", required: false)
 </body>
 </html>
