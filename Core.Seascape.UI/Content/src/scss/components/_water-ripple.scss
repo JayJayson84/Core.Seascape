@@ -1,0 +1,38 @@
+﻿.seascape-image-container {
+    position: relative;
+    overflow: hidden;
+
+    .water {
+        position: absolute;
+        background-size: cover;
+        background-position: bottom;
+        top: 50%;
+        left: 0;
+        height: 50%;
+        width: 100%;
+
+        @include breakpoint-max(sm) {
+            display: none;
+        }
+
+        @include breakpoint-min(sm) {
+            filter: url("#turbulence");
+        }
+
+        @include media-ie() {
+            display: none;
+        }
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+
+        @include media-ie() {
+            display: none;
+        }
+    }
+}

@@ -14,18 +14,18 @@ namespace Tests.Seascape
         [TestMethod]
         public void LowerRange()
         {
-            var sunsetService = new SeascapeService();
-            var sunsetModel = new SeascapeModel(1920, 1080);
-            var sunsetOptions = new SeascapeOptions();
+            var seascapeService = new SeascapeService();
+            var seascapeModel = new SeascapeModel(1920, 1080);
+            var seascapeOptions = new SeascapeOptions();
             var validRange = new List<int>();
 
             for (var kxl = 1200; kxl < 1210; kxl++)
             {
-                sunsetOptions.KXL = kxl;
+                seascapeOptions.KXL = kxl;
 
-                sunsetModel.Options = sunsetOptions;
+                seascapeModel.Options = seascapeOptions;
 
-                if (sunsetService.GenerateBase64Data(sunsetModel, false) != null)
+                if (seascapeService.GenerateBase64Data(seascapeModel, false) != null)
                 {
                     validRange.Add(kxl);
                 }
@@ -45,18 +45,18 @@ namespace Tests.Seascape
         [TestMethod]
         public void UpperRange()
         {
-            var sunsetService = new SeascapeService();
-            var sunsetModel = new SeascapeModel(1920, 1080);
-            var sunsetOptions = new SeascapeOptions();
+            var seascapeService = new SeascapeService();
+            var seascapeModel = new SeascapeModel(1920, 1080);
+            var seascapeOptions = new SeascapeOptions();
             var validRange = new List<int>();
 
             for (var kxl = 1891; kxl <= 1900; kxl++)
             {
-                sunsetOptions.KXL = kxl;
+                seascapeOptions.KXL = kxl;
 
-                sunsetModel.Options = sunsetOptions;
+                seascapeModel.Options = seascapeOptions;
 
-                if (sunsetService.GenerateBase64Data(sunsetModel, false) != null)
+                if (seascapeService.GenerateBase64Data(seascapeModel, false) != null)
                 {
                     validRange.Add(kxl);
                 }

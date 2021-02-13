@@ -1,7 +1,9 @@
 ﻿using Core.Seascape.UI.Models.Forms;
+using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Text.Encodings.Web;
 
@@ -11,6 +13,36 @@ namespace Core.Seascape.UI.Extensions
     {
 
         #region " Public Static Methods "
+
+        /// <summary>
+        /// A HtmlHelper method to render a meta tag element with the given <paramref name="property"/> and <paramref name="content"/> attributes.
+        /// </summary>
+        /// <param name="htmlHelper">Instance type to extend.</param>
+        /// <param name="property">A value for the property attribute.</param>
+        /// <param name="content">A value for the content attribute.</param>
+        /// <returns>A Html meta tag element if a valid <paramref name="property"/> and <paramref name="content"/> parameter is provided. Otherwise <see langword="null"/>.</returns>
+        [SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Unreferenced extension type")]
+        public static IHtmlContent MetaProperty(this IHtmlHelper htmlHelper, string property, string content)
+        {
+            if (!property.HasValue() || !content.HasValue()) return null;
+
+            return new HtmlContentBuilder().AppendHtmlLine($"<meta property=\"{property}\" content=\"{content}\">");
+        }
+
+        /// <summary>
+        /// A HtmlHelper method to render a meta tag element with the given <paramref name="name"/> and <paramref name="content"/> attributes.
+        /// </summary>
+        /// <param name="htmlHelper">Instance type to extend.</param>
+        /// <param name="name">A value for the name attribute.</param>
+        /// <param name="content">A value for the content attribute.</param>
+        /// <returns>A Html meta tag element if a valid <paramref name="name"/> and <paramref name="content"/> parameter is provided. Otherwise <see langword="null"/>.</returns>
+        [SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Unreferenced extension type")]
+        public static IHtmlContent MetaName(this IHtmlHelper htmlHelper, string name, string content)
+        {
+            if (!name.HasValue() || !content.HasValue()) return null;
+
+            return new HtmlContentBuilder().AppendHtmlLine($"<meta name=\"{name}\" content=\"{content}\">");
+        }
 
         /// <summary>
         /// A HtmlHelper method to render an ajax form element within a using statement.

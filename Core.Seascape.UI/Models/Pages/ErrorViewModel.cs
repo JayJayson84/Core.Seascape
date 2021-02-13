@@ -1,6 +1,4 @@
-using System;
-
-namespace Core.Seascape.UI.Models
+﻿namespace Core.Seascape.UI.Models.Pages
 {
     public class ErrorViewModel
     {

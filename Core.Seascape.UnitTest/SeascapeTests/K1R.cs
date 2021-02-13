@@ -14,18 +14,18 @@ namespace Tests.Seascape
         [TestMethod]
         public void LowerRange()
         {
-            var sunsetService = new SeascapeService();
-            var sunsetModel = new SeascapeModel(1920, 1080);
-            var sunsetOptions = new SeascapeOptions();
+            var seascapeService = new SeascapeService();
+            var seascapeModel = new SeascapeModel(1920, 1080);
+            var seascapeOptions = new SeascapeOptions();
             var validRange = new List<int>();
 
             for (var k1r = 540; k1r < 550; k1r++)
             {
-                sunsetOptions.K1R = k1r;
+                seascapeOptions.K1R = k1r;
 
-                sunsetModel.Options = sunsetOptions;
+                seascapeModel.Options = seascapeOptions;
 
-                if (sunsetService.GenerateBase64Data(sunsetModel, false) != null)
+                if (seascapeService.GenerateBase64Data(seascapeModel, false) != null)
                 {
                     validRange.Add(k1r);
                 }
@@ -45,18 +45,18 @@ namespace Tests.Seascape
         [TestMethod]
         public void UpperRange()
         {
-            var sunsetService = new SeascapeService();
-            var sunsetModel = new SeascapeModel(1920, 1080);
-            var sunsetOptions = new SeascapeOptions();
+            var seascapeService = new SeascapeService();
+            var seascapeModel = new SeascapeModel(1920, 1080);
+            var seascapeOptions = new SeascapeOptions();
             var validRange = new List<int>();
 
             for (var k1r = 551; k1r <= 560; k1r++)
             {
-                sunsetOptions.K1R = k1r;
+                seascapeOptions.K1R = k1r;
 
-                sunsetModel.Options = sunsetOptions;
+                seascapeModel.Options = seascapeOptions;
 
-                if (sunsetService.GenerateBase64Data(sunsetModel, false) != null)
+                if (seascapeService.GenerateBase64Data(seascapeModel, false) != null)
                 {
                     validRange.Add(k1r);
                 }
