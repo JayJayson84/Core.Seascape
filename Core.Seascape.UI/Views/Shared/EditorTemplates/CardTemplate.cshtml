@@ -1,0 +1,19 @@
+﻿@model System.Object
+@{
+    var meta = ViewData.ModelMetadata;
+}
+
+<div class="card-group mb-2">
+    <div class="card">
+        <div class="card-header">@meta.DisplayName</div>
+        <div class="card-body">
+            @foreach (var property in ViewData.ModelMetadata.Properties)
+            {
+                <div class="form-group">
+                    @Html.Label(property.DisplayName ?? property.PropertyName)
+                    @Html.Editor(property.PropertyName)
+                </div>
+            }
+        </div>
+    </div>
+</div>

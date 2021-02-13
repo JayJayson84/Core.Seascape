@@ -1,0 +1,44 @@
+﻿@using Core.Seascape.UI.Models.Layouts
+@using System.ComponentModel.DataAnnotations
+@using System.ComponentModel.ExtendedDataAnnotations
+@model System.Int32
+@{
+    var id = Html.IdForModel();
+    id = id.StartsWith(LayoutModel.RootPrefix)
+        ? id.Substring(Html.IdForModel().IndexOf("_") + 1)
+        : id;
+
+    var showLabel = (bool)(ViewData["showLabel"] ?? true);
+
+    var tmpl = ViewData.TemplateInfo;
+    var vmdl = tmpl.HtmlFieldPrefix.StartsWith(LayoutModel.RootPrefix)
+        ? tmpl.HtmlFieldPrefix.Substring(Html.IdForModel().IndexOf("_") + 1)
+        : tmpl.HtmlFieldPrefix;
+
+    var meta = ViewData.ModelMetadata;
+    var prop = meta.ContainerType.GetProperty(meta.PropertyName);
+    var attr = prop.GetCustomAttributes(false);
+    var range = attr.OfType<RangeAttribute>().FirstOrDefault();
+    var step = attr.OfType<StepAttribute>().FirstOrDefault();
+    var required = meta.IsRequired ? "required" : "";
+}
+
+@if (showLabel)
+{
+    <label for="@id" class="px-1">@(meta.DisplayName ?? prop.Name):</label>
+}
+<div class="input-group d-flex flex-row">
+    @if (range != null)
+    {
+        <div class="input-group-prepend col px-0 d-none d-lg-block">
+            <div class="input-group-text w-100"><span class='badge badge-secondary mr-1 d-none d-xl-block'>Min:</span>@($"{range.Minimum:N0}")</div>
+        </div>
+    }
+    <input id="@id" class="form-control col-12 col-lg-6" name="@vmdl" type="number" min="@range?.Minimum" max="@range?.Maximum" step="@step?.Step" value=@Html.ValueForModel() onkeydown="return event.keyCode !== 110 && event.keyCode !== 190" @required />
+    @if (range != null)
+    {
+        <div class="input-group-append col px-0 d-none d-lg-block">
+            <div class="input-group-text w-100"><span class='badge badge-secondary mr-1 d-none d-xl-block'>Max:</span>@($"{range.Maximum:N0}")</div>
+        </div>
+    }
+</div>
