@@ -1,0 +1,47 @@
+﻿@using Core.Seascape.UI.Models.Partials
+
+@model AnimatedSeascapeImageViewModel
+
+<div class="alert alert-danger d-none" role="alert"></div>
+<div class="seascape-image-container" data-animated-seascape-guid="@Model.Guid">
+    <img class="img-fluid" src="/images/transparent.png" alt="Seascape image. " />
+    <div class="water">
+        <svg>
+            <filter id="turbulence" x="0" y="0" width="100%" height="99%">
+                <feTurbulence id="sea-filter" numOctaves="2" seed="2" baseFrequency="0.02 0.05" type="turbulence" result="turbulence"></feTurbulence>
+                <feDisplacementMap scale="20" in2="turbulence" in="SourceGraphic"></feDisplacementMap>
+                <animate xlink:href="#sea-filter" attributeName="baseFrequency" dur="60s" keyTimes="0;0.5;1" values="0.02 0.06;0.04 0.08;0.02 0.06" repeatCount="indefinite"></animate>
+            </filter>
+        </svg>
+    </div>
+    <div class="overlay">
+        <div class="swiper-container w-100 h-100">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide--bg overlay-01"></div>
+                <div class="swiper-slide--bg overlay-01-stars"></div>
+                <div class="swiper-slide--bg overlay-02"></div>
+                <div class="swiper-slide--bg overlay-02-stars"></div>
+                <div class="swiper-slide--bg overlay-03"></div>
+                <div class="swiper-slide--bg overlay-03-stars"></div>
+                <div class="swiper-slide--bg overlay-04"></div>
+                <div class="swiper-slide--bg overlay-04-stars"></div>
+                <div class="swiper-slide--bg overlay-05"></div>
+                <div class="swiper-slide--bg overlay-05-stars"></div>
+                <div class="swiper-slide--bg overlay-31"></div>
+                <div class="swiper-slide--bg overlay-31-stars"></div>
+                <div class="swiper-slide--bg overlay-33"></div>
+                <div class="swiper-slide--bg overlay-33-stars"></div>
+            </div>
+            <div class="swiper-controls swiper-button-next swiper-button-white"></div>
+            <div class="swiper-controls swiper-button-prev swiper-button-white"></div>
+            <div class="swiper-controls swiper-pagination swiper-pagination-white"></div>
+        </div>
+    </div>
+    <div id="ajax-loader" class="overlay bg-dark" style="display:none;">
+        <div class="d-flex w-100 h-100 align-items-center justify-content-center">
+            <div class="spinner-border text-white" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </div>
+</div>
