@@ -1,0 +1,15 @@
+﻿@using Core.Seascape.UI.Extensions
+@using Core.Seascape.UI.Models.Forms.Seascape
+
+@model SeascapeForm
+
+@using (Html.AjaxBeginForm(Model))
+{
+    <div id="accordion" class="accordion">
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.AnimatedSeascapeImage.Guid)
+        @Html.EditorFor(m => m.Attributes, new { showControls = true })
+        @Html.EditorFor(m => m.Colourscheme)
+        @Html.EditorFor(m => m.Advanced)
+    </div>
+}
