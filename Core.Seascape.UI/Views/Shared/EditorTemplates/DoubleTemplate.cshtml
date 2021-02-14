@@ -1,0 +1,27 @@
+﻿@using Core.Seascape.UI.Models.Layouts
+@using System.ComponentModel.DataAnnotations
+@model System.Double
+@{
+    var id = Html.IdForModel();
+    id = id.StartsWith(LayoutModel.RootPrefix)
+        ? id.Substring(Html.IdForModel().IndexOf("_") + 1)
+        : id;
+
+    var showLabel = (bool)(ViewData["showLabel"] ?? true);
+
+    var tmpl = ViewData.TemplateInfo;
+    var vmdl = tmpl.HtmlFieldPrefix.StartsWith(LayoutModel.RootPrefix)
+        ? tmpl.HtmlFieldPrefix.Substring(Html.IdForModel().IndexOf("_") + 1)
+        : tmpl.HtmlFieldPrefix;
+
+    var meta = ViewData.ModelMetadata;
+    var prop = meta.ContainerType.GetProperty(meta.PropertyName);
+    var attr = prop.GetCustomAttributes(false);
+    var range = attr.OfType<RangeAttribute>().FirstOrDefault();
+    var required = meta.IsRequired ? "required" : "";
+}
+@if (showLabel)
+{
+    <label for="@id" class="px-1">@(meta.DisplayName ?? prop.Name):</label>
+}
+<input id="@id" class="form-control" name="@vmdl" type="number" step="any" min="@range.Minimum" max="@range.Maximum" value=@Html.ValueForModel() @required />

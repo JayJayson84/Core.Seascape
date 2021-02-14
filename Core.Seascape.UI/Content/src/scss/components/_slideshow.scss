@@ -1,0 +1,23 @@
+﻿.swiper-container {
+    .swiper-wrapper {
+        .swiper-slide {
+            &--bg {
+                @extend .swiper-slide;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        }
+    }
+
+    .swiper-controls {
+        opacity: 0;
+        @include transition(opacity .2s ease-in-out);
+    }
+
+    &:hover {
+        .swiper-controls {
+            z-index: 9999;
+            opacity: 1;
+        }
+    }
+}

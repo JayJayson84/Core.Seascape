@@ -1,0 +1,57 @@
+﻿@using System.ComponentModel.ExtendedDataAnnotations
+@{
+    var meta = ViewData.ModelMetadata;
+    var prop = meta.ContainerType.GetProperty(meta.PropertyName);
+    var attr = prop.GetCustomAttributes(false);
+    var showControls = (bool)(ViewData["showControls"] ?? false);
+
+    var headCollapsed = string.Empty;
+    var headExpanded = "true";
+    var showBody = "show";
+
+    if (attr.OfType<CollapsedAttribute>().FirstOrDefault()?.Collapse ?? false)
+    {
+        headCollapsed = "collapsed";
+        headExpanded = "false";
+        showBody = string.Empty;
+    }
+
+    var id = string.IsNullOrEmpty(meta?.Name)
+        ? Guid.NewGuid().ToString()
+        : meta.Name;
+
+    var cardId = $"card{id}";
+    var headingId = $"heading{id}";
+    var collapseId = $"collapse{id}";
+    var bodyId = $"body{id}";
+}
+
+<div id="@cardId" class="card rounded-0">
+    <div id="@headingId" class="card-header rounded-0">
+        <div class="form-row">
+            <div class="col-auto col-lg-12 col-xl-auto form-group mb-0 text-right order-last order-lg-first order-xl-last">
+                <button type="button" class="btn btn-secondary" data-btn-randomise="@cardId" data-toggle="tooltip" data-placement="top" title="Randomise"><i class="fa fa-random"></i></button>
+                @if (showControls)
+                {
+                    <button type="reset" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Reset"><i class="fa fa-refresh"></i></button>
+                    <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="New Background">Generate</button>
+                }
+            </div>
+            <div class="col col-lg-12 col-xl form-group mb-0 order-first order-lg-last order-xl-first">
+                <button type="button" class="btn btn-link btn-block d-flex align-items-center justify-content-between text-decoration-none" data-toggle="collapse" data-target="#@collapseId" aria-expanded="@headExpanded" aria-controls="@collapseId">
+                    @meta.DisplayName <i class="fa fa-chevron-down"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="@collapseId" class="collapse @showBody" aria-labelledby="@headingId" data-parent="#accordion">
+        <div id="@bodyId" class="card-body">
+            @foreach (var property in meta?.Properties)
+            {
+                <div class="form-group">
+                    @Html.Editor(property.PropertyName)
+                </div>
+            }
+        </div>
+    </div>
+</div>

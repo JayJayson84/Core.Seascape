@@ -1,0 +1,73 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col order-lg-first mh-100">
+            <h1>About Seascape</h1>
+            <p>
+                Seascape is a .Net Core 3.1 project that creates randomised computer generated images.
+            </p>
+            <img class="img-fluid" src="~/images/seascape-randomiser.png" alt="Seascape Randomiser preview image. " />
+            <hr class="my-3" />
+            <p>
+                The original algorithm was coded in Visual Basic 6 and shared on a VBForums post titled
+                <span class="font-italic">
+                    <a href="https://www.vbforums.com/showthread.php?655280-The-most-amazing-VB6-Code-ever" title="Open link in a new tab. " target="_blank">
+                        'The most amazing VB6 Code ever'
+                    </a>
+                </span> in 2011. It remained in my bookmarks until recently taking on the challenge of converting the source code into a C# library. A number of the hardcoded
+                values have been reverse engineered for finer control over the colourscheme and artifacts such as the sun size etc.
+            </p>
+            <hr class="my-3" />
+            <p>
+                This website was the perfect opportunity to take a look in more detail at some of the following technical specifications:
+            </p>
+            <ul>
+                <li>ASP.Net Core 3.1 MVC.</li>
+                <li>Dependency Injection.</li>
+                <li>Model binding with AutoMapper.</li>
+                <li>A typed layout model using generics which also allows viewmodels to be used indepently.</li>
+                <li>An N-Layer project with a business logic layer to interact with the CGI service separately from the UI.</li>
+                <li>jQuery Unobtrusive AJAX for POST'ing form data - <a href="https://www.learnrazorpages.com/razor-pages/ajax/unobtrusive-ajax" title="Open link in a new tab. " target="_blank">great tutorial here</a>.</li>
+                <li>IHtmlHelper extensions to render AJAX forms using the <code>@@Html.BeginForm()</code> syntax.</li>
+                <li>A custom HexColour structure for implicit and explicit type conversions from html colour codes to integers.</li>
+                <li>ViewLocationFormats for cleaner file structuring of partials and views.</li>
+                <li>DataAnnotations and EditorTemplates to keep on page logic separate from Views as much as possible.</li>
+                <li>Gulp/Node/Webpack to compile, bundle and minify Javascript ES6 and SASS styles.</li>
+                <li>SASS variables and mixins for breakpoints, media and transition selectors.</li>
+                <li>Bootstrap 4 for responsive layout and native components such as the Tooltip.</li>
+                <li><a href="https://swiperjs.com/" title="Open link in a new tab. " target="_blank">Swiper</a> which is an ES6 compatible touch enabled slider (though not compatible with IE).</li>
+                <li>SVG filters to apply the water animation effect - <a href="https://redstapler.co/realistic-water-effect-svg-turbulence-filter/" title="Open link in a new tab. " target="_blank">great tutorial here</a>.</li>
+                <li>Image compression for PNG images based on <a href="https://www.nuget.org/packages/nQuant/" title="Open link in a new tab. " target="_blank">NQuant</a> (excludes the seascape image due to the loss of quality on gradients).</li>
+                <li><a href="https://css-tricks.com/data-uris/" title="Open link in a new tab. " target="_blank">Data URI's</a> to combine images into a single stylesheet and reduce the number of file requests.</li>
+                <li>Unit tests to find the limitations of the CGI attributes to avoid overflow exceptions as much as possible.</li>
+            </ul>
+            <hr class="my-3" />
+            <h2>
+                Hosting Recommendations:
+            </h2>
+            <ul>
+                <li><strong>Domain registration</strong>: <a href="https://netistrar.com/" title="Open link in a new tab. " target="_blank">Netistrar</a> for <code>.co.uk</code> and <a href="https://www.cloudflare.com/en-gb/" title="Open link in a new tab. " target="_blank">Cloudflare</a> for <code>.com</code> domains.</li>
+                <li><strong>DNS management</strong>: Cloudflare DNS with proxy enabled.</li>
+                <li><strong>MX Records</strong>: <a href="" title="Open link in a new tab. " target="_blank">Zoho Mail</a> for off-server domain e-mail hosting.</li>
+                <li><strong>SSL</strong>: Cloudflare certificate with 15 year expiry.</li>
+                <li><strong>Content Delivery Network</strong>: Cloudflare.</li>
+                <li><strong>Web Hosting</strong>: <a href="https://www.eukhost.com/windows-hosting" title="Open link in a new tab. " target="_blank">eUKHost</a> shared Windows hosting with <a href="https://www.plesk.com/" title="Open link in a new tab. " target="_blank">Plesk</a> management.</li>
+            </ul>
+            <hr class="my-3" />
+            <h2>
+                Useful Utilities/Resources
+            </h2>
+            <ul>
+
+                <li><a href="https://visualstudio.microsoft.com/downloads/" title="Open link in a new tab. " target="_blank">Visual Studio Community Edition 2019</a>: Development IDE.</li>
+                <li><a href="https://www.sourcetreeapp.com/" title="Open link in a new tab. " target="_blank">SoureTree</a>: A tool for managing Git workflow.</li>
+                <li><a href="https://www.scootersoftware.com/" title="Open link in a new tab. " target="_blank">Beyond Compare</a>: A tool for comparing text and/or files.</li>
+                <li><a href="https://www.flashfxp.com/" title="Open link in a new tab. " target="_blank">FlashFXP</a>: An FTP client for downloading/uploading files to remote servers.</li>
+                <li><a href="https://affinity.serif.com/en-gb/designer/" title="Open link in a new tab. " target="_blank">Affinity Designer</a>: A reasonably priced and comprehensive image/vector editing tool.</li>
+                <li><a href="https://icofx.ro/" title="Open link in a new tab. " target="_blank">IcoFX</a>: A Powerful icon editor.</li>
+                <li><a href="https://tinypng.com/" title="Open link in a new tab. " target="_blank">TinyPNG</a>: Online tool for <code>PNG</code> image compression capable of maintaining detailed gradients.</li>
+                <li><a href="https://www.pexels.com/" title="Open link in a new tab. " target="_blank">Pexels</a>: A free stock photography archive.</li>
+                <li><a href="https://thehungryjpeg.com/" title="Open link in a new tab. " target="_blank">TheHungryJpeg</a>: An archive for commercial design assets.</li>
+            </ul>
+        </div>
+    </div>
+</div>
