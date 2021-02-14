@@ -1,4 +1,4 @@
-# Core.Seascape - Random image generator
+# Seascape - A random image generator
 ![alt text](https://github.com/JayJayson84/Core.Seascape/blob/develop/Core.Seascape.UI/wwwroot/images/seascape-randomiser.png?raw=true)
 
 ### About
@@ -45,7 +45,7 @@ The original algorithm was coded in Visual Basic 6 and shared on a VBForums post
 
 ---
 
-### Hosting Reccomendations
+### Hosting Recommendations
 - **Domain registration:** [Netistrar](https://netistrar.com/) for `.co.uk` and [Cloudflare](https://www.cloudflare.com/en-gb/) for `.com`
 - **Content Delivery Network:** Cloudflare
 - **DNS management:** Cloudflare DNS with proxy enabled
