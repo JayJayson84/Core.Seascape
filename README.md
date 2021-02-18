@@ -37,7 +37,7 @@ The original algorithm was coded in Visual Basic 6 and shared on a VBForums post
 1. Open in Visual Studio.
 1. Restore Nuget packages.
 1. Using the Developer Powershell:
-    1. Open in the **Core.Seascape.UI** project folder.
+    1. Navigate to the **Core.Seascape.UI** project folder.
     1. Run `npm i` to install node packages.
 1. Using the Task Runner Explorer window:
     1. Run the `default` gulp task to bundle, minify and watch for js and sass/css file changes.
